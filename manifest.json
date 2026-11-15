@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Soundboard Bridge — DnD Beyond",
+  "description": "Spiegelt HP/AC/Conditions/Inventar + Wuerfel von DnD Beyond live aufs Soundboard-Spielbrett.",
+  "version": "0.2.0",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://*.dndbeyond.com/*",
+    "http://localhost/*",
+    "https://*.onrender.com/*"
+  ],
+  "action": {
+    "default_title": "Soundboard Bridge",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.dndbeyond.com/characters/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://www.dndbeyond.com/characters/*"],
+      "js": ["page-hook.js"],
+      "run_at": "document_start",
+      "world": "MAIN",
+      "all_frames": true
+    }
+  ]
+}

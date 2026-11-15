@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Soundboard Bridge</title>
+<link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+    <h1>Soundboard Bridge</h1>
+
+    <section id="status-sec">
+        <div class="row">
+            <label>Status</label>
+            <span id="status">—</span>
+        </div>
+        <div class="row">
+            <label>Backend</label>
+            <span id="backend-url-display">—</span>
+        </div>
+        <div class="row">
+            <label>User</label>
+            <span id="username-display">—</span>
+        </div>
+        <button id="logout-btn" class="secondary">Abmelden</button>
+    </section>
+
+    <section id="login-sec" hidden>
+        <div class="field">
+            <label for="backend">Backend-URL</label>
+            <input id="backend" type="url" placeholder="http://localhost:8000" value="http://localhost:8000" />
+        </div>
+        <div class="field">
+            <label for="username">Soundboard-Username</label>
+            <input id="username" type="text" autocomplete="username" />
+        </div>
+        <div class="field">
+            <label for="password">Passwort</label>
+            <input id="password" type="password" autocomplete="current-password" />
+        </div>
+        <button id="login-btn" class="primary">Anmelden</button>
+        <div id="login-err" class="error" hidden></div>
+    </section>
+
+    <section id="actions-sec">
+        <div class="hint">
+            Öffne auf <code>dndbeyond.com/characters/&lt;id&gt;</code> deinen Charakter. Die Extension poll't HP/AC/Conditions/Inventar und pusht sie ans Soundboard, sobald sich etwas ändert.
+        </div>
+    </section>
+
+    <script src="popup.js"></script>
+</body>
+</html>
